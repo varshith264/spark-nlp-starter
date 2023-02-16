@@ -15,18 +15,18 @@ public class POC {
                 .getOrCreate();
 
         Dataset<Row> inputDf = NlpPipelineHelper.getInputDf();
-        inputDf.show(10000, false);
+        inputDf.show(100000, false);
 
         Pipeline nlpPipeline = NlpPipelineHelper.getNLPPipeline();
         Dataset<Row> nlpTransformedDf = nlpPipeline.fit(inputDf).transform(inputDf);
-
-//        nlpTransformedDf.show(10000, false);
-
-//        nlpTransformedDf.select("text", "entities").show(10000, false);
 //
+//        nlpTransformedDf.show(10000, false);
+//
+        nlpTransformedDf.select("text", "entities").show(10000, false);
+
         Dataset<Row> resultsDf = Helper.getEntitiesDf(nlpTransformedDf.select("text", "entities"));
 
-        resultsDf.show(10000, false);
+        resultsDf.show(100000, false);
         System.in.read();
         sparkSession.stop();
     }

@@ -38,11 +38,23 @@ object NlpPipelineHelper {
 
   def getInputDf: DataFrame = {
 
-//    val csvPath = "/home/varshith/IdeaProjects/spark-nlp-starter/src/test/testdata/sample_100k_rows.csv";
+//    val csvPath = "/home/varshith/IdeaProjects/spark-nlp-starter/src/test/testdata/sample_10k_rows.csv";
 //    val csvPath = "/home/varshith/IdeaProjects/spark-nlp-starter/src/test/testdata/Sales_100_rows.csv";
 //    val csvPath = "/home/varshith/IdeaProjects/spark-nlp-starter/src/test/testdata/sample_1k_rows.csv";
     val csvPath = "/home/varshith/IdeaProjects/spark-nlp-starter/src/test/testdata/sample_Test_10_Dataset.csv";
     spark.read.option("header", value = true).csv(csvPath);
+
+
+//    def readExcel(file: String): DataFrame = spark.sqlContext.read
+//      .format("com.crealytics.spark.excel")
+//      .option("location", file)
+//      .option("useHeader", "true")
+//      .option("treatEmptyValuesAsNulls", "true")
+//      .option("inferSchema", "true")
+////      .option("addColorColumns", "False")
+//      .load()
+//
+//    readExcel("/home/varshith/IdeaProjects/spark_nlp/spark-nlp-starter/src/test/testdata/sample_35k_rows.xlsx")
 
 //    spark
 //      .createDataFrame(
